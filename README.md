@@ -5,7 +5,7 @@ Esay Install :
       
   Second :  Install django-admin (reference https://pypi.org/project/django-admin/ )
         
-          pip install pip install django-admin 
+          pip install django-admin 
           Note : pip ( pip in python3.x.x) 
   Run app :
           
