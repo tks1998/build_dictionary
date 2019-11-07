@@ -14,3 +14,15 @@ Esay Install :
   
   The app includes features: add new word, delete word in dictionary, search word, save struct Trie in file pickle
   ![Alt text](main.PNG)
+  
+  choose action
+  ![Alt text](choose.PNG)
+  
+  search word
+  ![Alt text](find.PNG)
+
+  delete word 
+  ![Alt text](xoatu.PNG)
+
+  add new word
+  ![Alt text](add_word.PNG)
