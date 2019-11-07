@@ -1,6 +1,8 @@
-Lastest update: 11/7/2019 11:16 PM 
+Lastest update: 11/7/2019 11:32 PM 
 
 Web dictionary: support windows,ios,adroid,ubuntu && Mac
+
+Disadvantage : accent errors in Vietnamese 
 
 Esay Install :
   First step: Install Python3.x.x
