@@ -26,9 +26,9 @@ def add(root, word: str, index=-1):
             new_node = TrieNode(char)
             node.children.append(new_node)
             node = new_node
-    print(word,index)
+    print(word, index)
     node.index = index
-    return 
+    return
 
 
 def find_prefix(root, prefix: str):
@@ -48,7 +48,9 @@ def find_prefix(root, prefix: str):
             return -1
             # return node.recomend
     return node.index
-def delete_word(root,prefix:str):
+
+
+def delete_word(root, prefix: str):
     node = root
     if not root.children:
         return False
@@ -66,7 +68,8 @@ def delete_word(root,prefix:str):
     if node.index != -1:
         node.index = -1
         return True
-    return False   
+    return False
+
 
 def make_tree():
     filePath = os.path.join(os.path.dirname(__file__), "data.txt")
@@ -81,41 +84,50 @@ def make_tree():
         name = line.split(':')[0]
         add(root, name, offset)
     return root
+# save to file pickle -> file root.pickle
+
+
+def save_to_pickle():
+    pickle_out = open("root.pickle", "wb")
+    pickle.dump(config.root, pickle_out)
+    pickle_out.close()
+    return
+
 
 def get_request_and_delete(name):
     if (config.Build_Tree == False):
         config.root = make_tree()
         config.Build_Tree = True
-    pickle_out = open("root.pickle","wb")   # cap nhat -> ghi vao file pickle
-    pickle.dump(config.root, pickle_out)
-    pickle_out.close()
-    return {"status":delete_word(config.root,name)}
-def get_request_and_add(name:str,mean:str):
+    save_to_pickle()
+    return {"status": delete_word(config.root, name)}
+
+
+def get_request_and_add(name: str, mean: str):
     if (config.Build_Tree == False):
         config.root = make_tree()
         config.Build_Tree = True
-    if find_prefix(config.root,name) != -1:
-        return 
+    if find_prefix(config.root, name) != -1:
+        return
     # add word to file data
     new_word = name+":"+mean+"\n"
     filePath = os.path.join(os.path.dirname(__file__), "data.txt")
     f = open(filePath, 'a')
-    idx =f.tell()
+    idx = f.tell()
     f.writelines(new_word)
-    
+
     f.close()
-    # add new word 
-    add(config.root,name,idx)
-    # save struct root with pickle file 
-    pickle_out = open("root.pickle","wb")
-    pickle.dump(config.root, pickle_out)
-    pickle_out.close()
-    return  
+    # add new word
+    add(config.root, name, idx)
+    # save struct root with pickle file
+    save_to_pickle()
+    return
+
+
 def get_request_and_find(find_name):
     if (config.Build_Tree == False):
         config.root = make_tree()
         config.Build_Tree = True
-    
+
     idx = find_prefix(config.root, find_name)
     if idx == -1:
         return {
@@ -127,9 +139,7 @@ def get_request_and_find(find_name):
     f.seek(idx)
     mean = f.readline().split(':')[1]
     f.close()
-    pickle_out = open("root.pickle","wb")
-    pickle.dump(config.root, pickle_out)
-    pickle_out.close()
+    save_to_pickle()
     return {
         "name": find_name,
         "mean": mean
