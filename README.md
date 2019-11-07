@@ -1,3 +1,4 @@
+Lastest update: 11/7/2019 11:16 PM 
 Esay Install :
   First step: Install Python3.x.x
       
