@@ -13,4 +13,4 @@ Esay Install :
   Front-end : bootstrap, html, css, javascript.
   
   The app includes features: add new word, delete word in dictionary, search word, save struct Trie in file pickle
-  
+  ![Alt text](main.PNG)
