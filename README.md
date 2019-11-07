@@ -1,5 +1,7 @@
 Lastest update: 11/7/2019 11:16 PM 
 
+Web dictionary: support windows,ios,adroid,ubuntu && Mac
+
 Esay Install :
   First step: Install Python3.x.x
       
